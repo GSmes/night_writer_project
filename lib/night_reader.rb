@@ -11,7 +11,7 @@ class NightReader
   end
 
   def print_output
-    put_in_new_lines
+    remove_special_char_tags
   end
 
 #match_up_input_lines
@@ -112,28 +112,5 @@ class NightReader
     output = capitalize_the_indexed
     output = output.gsub('*', '')
     output = output.gsub('#', '')
-  end
-
-#mark_spaces_and_add_new_line_marks_at_80_characters_per_line
-
-  def put_in_new_lines
-    output = remove_special_char_tags.chars
-    spaces = index_the_spaces
-    wrap = 80
-    spaces.each_with_index do |space, index|
-      if wrap - space <= 0
-        previous_index = index_the_spaces[index - 1]
-        output[previous_index] = " \n"
-        wrap = previous_index + 80
-      end
-    end
-    output.join
-  end
-
-  def index_the_spaces
-    output = remove_special_char_tags.chars
-    output.map.with_index do |letter, index|
-      index if letter == " "
-    end.compact
   end
 end

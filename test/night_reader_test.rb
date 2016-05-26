@@ -62,21 +62,4 @@ class NightReaderTest < MiniTest::Test
     nr = NightReader.new(hEllo_World7_79)
     assert_equal "hEllo World7 79 ", nr.remove_special_char_tags
   end
-
-  def test_index_the_spaces_marks_the_spaces
-    nr = NightReader.new(hEllo_World7_79)
-    assert_equal [5, 12, 15], nr.index_the_spaces
-  end
-
-  def test_index_the_spaces_marks_the_spaces_with_sample
-    nr = NightReader.new(test)
-    output = [9, 19, 29, 39, 49, 59, 69, 79, 89, 99]
-    assert_equal output, nr.index_the_spaces
-  end
-
-  def test_put_in_new_lines_with_sample_data
-    nr = NightReader.new(test)
-    output = "abcdefghi jklmnopqr stuvwxyza abcdefghi jklmnopqr stuvwxyza abcdefghi jklmnopqr \nstuvwxyza abcdefghi "
-    assert_equal output, nr.put_in_new_lines
-  end
 end
